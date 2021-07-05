@@ -1,0 +1,1 @@
+/opt/cprocsp/bin/amd64/curl -sb GET http://192.168.146.6:1433/webdav/upload/fdc8960e-a494-4071-9708-4075e6c92b8f/ticket_fdc8960e-a494-4071-9708-4075e6c92b8f -H 'Authorization: token fa19009b-93b4-464f-ba79-d28c922fc9cc'

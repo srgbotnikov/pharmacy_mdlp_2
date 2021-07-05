@@ -1,0 +1,898 @@
+{
+	"info": {
+		"_postman_id": "37dac039-eb0e-4414-a166-015d07a5a35f",
+		"name": "PHARMACY_MDLP_2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Documents",
+			"item": [
+				{
+					"name": "/v2/documents/:docId Получить метаданные документа",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v2/documents/fdc8960e-a494-4071-9708-4075e6c92b8f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"documents",
+								"fdc8960e-a494-4071-9708-4075e6c92b8f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/documents/request/:request_id Получение списка документов по ИД запроса",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v2/documents/request/2d78cec0-ca29-4928-b26e-1bb566bab622",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"documents",
+								"request",
+								"2d78cec0-ca29-4928-b26e-1bb566bab622"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/documents/download/:docId Получить документ по ИД",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/v2/documents/download/fdc8960e-a494-4071-9708-4075e6c92b8f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"documents",
+								"download",
+								"fdc8960e-a494-4071-9708-4075e6c92b8f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/documents/:docId/ticket Получить квитанцию по ИД",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/v2/documents/fdc8960e-a494-4071-9708-4075e6c92b8f/ticket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"documents",
+								"fdc8960e-a494-4071-9708-4075e6c92b8f",
+								"ticket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/documents/send Отправить файл",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"value": "<documents version=\"1.16\" >\n\t<query_kiz_info action_id=\"210\">\n\t\t<subject_id>00000000000561</subject_id>\n\t\t<sgtin>1117001261015100000000a0011</sgtin>\n\t</query_kiz_info>\n</documents>",
+									"type": "text"
+								},
+								{
+									"key": "requestID",
+									"value": "2d78cec0-ca29-4928-b26e-1bb566bab610",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/documents/send",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"documents",
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/documents/send_large Отправить файл большого размера",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"value": "<documents version=\"1.16\" >\n\t<query_kiz_info action_id=\"210\">\n\t\t<subject_id>00000000000561</subject_id>\n\t\t<sgtin>1117001261015100000000a0012</sgtin>\n\t</query_kiz_info>\n</documents>",
+									"type": "text"
+								},
+								{
+									"key": "requestID",
+									"value": "2d78cec0-ca29-4928-b26e-1bb566bab622",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/documents/send_large",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"documents",
+								"send_large"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/documents/cancel Отмена отправки документа",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"document_id\": \"fdc8960e-a494-4071-9708-4075e6c92b8f\",\n \"request_id\": \"2d78cec0-ca29-4928-b26e-1bb566bab622\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/documents/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"documents",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/documents/outcome Получение списка исходящих документов",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"filter\": {\"processing_document_status\": \"PROCESSING\"},\n\"start_from\": 0,\n\"count\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/documents/outcome",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"documents",
+								"outcome"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/documents/income Получение списка входящих документов",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"filter\": {},\n\"start_from\": 0,\n\"count\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/documents/income",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"documents",
+								"income"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/documents/income/mark_read Передача информации о прочтении документа",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"document_ids\":[\n \"8033d6aa-1ccd-4e76-9e86-c10c522f6201\",\n \"8033d6aa-1ccd-4e76-9e86-c10c522f6271\",\n \"8033d6aa-1ccd-4e76-9e86-c10c522f6801\"\n ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/documents/income/mark_read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"documents",
+								"income",
+								"mark_read"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reestr",
+			"item": [
+				{
+					"name": "/v2/reestr/sgtin/filter Метод поиска по реестрам КИЗ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n\t\t\n\t},\n\t\"start_from\": 0,\n\t\"count\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/sgtin/filter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"sgtin",
+								"filter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/esklp/filter Фильтрация по реестру ЕСКЛП",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n       \"PROD_NAME\":\"ЛИМОННАЯ КИСЛОТА\"\n\t},\n\t\"start_from\": 0,\n\t\"count\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/esklp/filter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"esklp",
+								"filter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/trusted_partners/add Добавление доверенных контрагентов",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"trusted_partners\": [\n \"0c291e4a-aabb-41ae-8ef2-ce462561ce11\"\n ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/trusted_partners/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"trusted_partners",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/trusted_partners/filter Метод фильтрации доверенных контрагентов",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\"filter\":{}, \n\"start_from\": 0, \n\"count\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/trusted_partners/filter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"trusted_partners",
+								"filter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr_partners/filter фильтрация по субъектам обращения",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n  \"filter\": \n  { \n  \"system_subj_id\": \"0e502de0-c1fd-47bf-86bf-137e297213fb\" ,\n  \"reg_entity_type\": 1\n  } \n, \n\"start_from\": 0, \n\"count\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr_partners/filter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr_partners",
+								"filter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/trusted_partners/delete Удаление доверенного контрагента",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"trusted_partners\": [\n \"0c291e4a-aabb-41ae-8ef2-ce462561ce11\"\n ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/trusted_partners/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"trusted_partners",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/sscc/{sscc}/sgtins Метод для получения информации о КИЗ в третичной упаковке",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"start_from\": 0,\n \"count\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/sscc/540488460368761626/sgtins",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"sscc",
+								"540488460368761626",
+								"sgtins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/sgtin/validate Метод валидации кода маркировки",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"sgtins\": [\n \"04620032570010TRACKING00000\",\n \"289011480058360121118000002\",\n \"04620032570010TRACKING00001\",\n \"04603679001017Eu4kaSCbF7HbY\"\n ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/sgtin/validate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"sgtin",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/sgtin/sgtins-by-list Метод поиска по реестрам КИЗ по списку значений",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"filter1\": {\n \"sgtins\": [\n \"0460702776135600001Z923YVLY\",\n\"0460702776135600001Z90Q4BXU\",\n\"0460702776135600001Z91L4MIK\",\n\"0460702776135600001Z91DTGLH\",\n\"0460702776135600001Z90DTLQ7\",\n\"0460702776135600001Z905T7DP\",\n\"0460702776135600001Z8ZPTPGW\",\n\"0460702776135600001Z936TK71\",\n\"0460702776135600001Z925TVFC\",\n\"0460702776135600001Z917YG4G\",\n\"0460702776135600001Z90ZT1CW\",\n\"0460702776135600001Z90RTFU4\",\n\"0460702776135600001Z90JYCXO\",\n\"0460702776135600001Z93MYPLF\",\n\"0460702776135600001Z93UY9ZY\",\n\"0460702776135600001Z90SYWV8\",\n\"0460702776135600001Z910T9G9\",\n\"0460702776135600001Z9184MQH\",\n\"0460702776135600001Z91GYFTO\",\n\"0460702776135600001Z91OYUUP\"\n ]\n}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/sgtin/sgtins-by-list?format=json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"sgtin",
+								"sgtins-by-list"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "json"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/v2/reestr/sgtin/sgtins-by-list Метод поиска по реестрам КИЗ по списку значений",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"filter\": {\n \"sgtins\": [\n \"0460702776135600001Z923YVLY\",\n\"0460702776135600001Z90Q4BXU\",\n\"0460702776135600001Z91L4MIK\",\n\"0460702776135600001Z91DTGLH\",\n\"0460702776135600001Z90DTLQ7\",\n\"0460702776135600001Z905T7DP\",\n\"0460702776135600001Z8ZPTPGW\",\n\"0460702776135600001Z936TK71\",\n\"0460702776135600001Z925TVFC\",\n\"0460702776135600001Z917YG4G\",\n\"0460702776135600001Z90ZT1CW\",\n\"0460702776135600001Z90RTFU4\",\n\"0460702776135600001Z90JYCXO\",\n\"0460702776135600001Z93MYPLF\",\n\"0460702776135600001Z93UY9ZY\",\n\"0460702776135600001Z90SYWV8\",\n\"0460702776135600001Z910T9G9\",\n\"0460702776135600001Z9184MQH\",\n\"0460702776135600001Z91GYFTO\",\n\"0460702776135600001Z91OYUUP\"\n ]\n}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/v2/reestr/sgtin/sgtins-by-list?format=json",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"v2",
+										"reestr",
+										"sgtin",
+										"sgtins-by-list"
+									],
+									"query": [
+										{
+											"key": "format",
+											"value": "json"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Jun 2021 09:33:51 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 20,\n    \"failed\": 0,\n    \"entries\": [\n        {\n            \"id\": \"0460702776135600001Z923YVLY\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z923YVLY\",\n            \"status\": \"in_sale\",\n            \"status_date\": \"2021-05-05T07:43:00\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-05-19T21:50:24\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.477Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\",\n            \"withdrawal_type\": 2,\n            \"via_device\": 2\n        },\n        {\n            \"id\": \"0460702776135600001Z90Q4BXU\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z90Q4BXU\",\n            \"status\": \"in_sale\",\n            \"status_date\": \"2021-05-05T07:43:00\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-05-19T21:47:14\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.253Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\",\n            \"withdrawal_type\": 2,\n            \"via_device\": 2\n        },\n        {\n            \"id\": \"0460702776135600001Z91L4MIK\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z91L4MIK\",\n            \"status\": \"in_sale\",\n            \"status_date\": \"2021-05-05T07:43:00\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-05-19T21:22:32\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.426Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\",\n            \"withdrawal_type\": 2,\n            \"via_device\": 2\n        },\n        {\n            \"id\": \"0460702776135600001Z91DTGLH\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z91DTGLH\",\n            \"status\": \"in_sale\",\n            \"status_date\": \"2021-05-05T07:43:00\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-05-19T21:47:14\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.404Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\",\n            \"withdrawal_type\": 2,\n            \"via_device\": 2\n        },\n        {\n            \"id\": \"0460702776135600001Z90DTLQ7\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z90DTLQ7\",\n            \"status\": \"in_sale\",\n            \"status_date\": \"2021-05-05T07:43:00\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-05-20T04:39:22\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.215Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\",\n            \"withdrawal_type\": 2,\n            \"via_device\": 2\n        },\n        {\n            \"id\": \"0460702776135600001Z905T7DP\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z905T7DP\",\n            \"status\": \"in_sale\",\n            \"status_date\": \"2021-05-05T07:43:00\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-05-19T21:47:14\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.191Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\",\n            \"withdrawal_type\": 2,\n            \"via_device\": 2\n        },\n        {\n            \"id\": \"0460702776135600001Z8ZPTPGW\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z8ZPTPGW\",\n            \"status\": \"in_sale\",\n            \"status_date\": \"2021-05-05T07:43:00\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-05-19T21:18:16\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.139Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\",\n            \"withdrawal_type\": 2,\n            \"via_device\": 2\n        },\n        {\n            \"id\": \"0460702776135600001Z936TK71\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z936TK71\",\n            \"status\": \"in_sale\",\n            \"status_date\": \"2021-03-09T07:21:00\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-03-20T18:44:41\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.612Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\",\n            \"withdrawal_type\": 2,\n            \"via_device\": 2\n        },\n        {\n            \"id\": \"0460702776135600001Z925TVFC\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z925TVFC\",\n            \"status\": \"in_sale\",\n            \"status_date\": \"2021-05-05T07:43:00\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-05-19T21:54:59\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.483Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\",\n            \"withdrawal_type\": 2,\n            \"via_device\": 2\n        },\n        {\n            \"id\": \"0460702776135600001Z917YG4G\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z917YG4G\",\n            \"status\": \"in_sale\",\n            \"status_date\": \"2021-05-05T07:43:00\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-05-19T21:03:15\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.311Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\",\n            \"withdrawal_type\": 2,\n            \"via_device\": 2\n        },\n        {\n            \"id\": \"0460702776135600001Z90ZT1CW\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z90ZT1CW\",\n            \"status\": \"in_sale\",\n            \"status_date\": \"2021-05-05T07:43:00\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-05-19T21:50:24\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.289Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\",\n            \"withdrawal_type\": 2,\n            \"via_device\": 2\n        },\n        {\n            \"id\": \"0460702776135600001Z90RTFU4\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z90RTFU4\",\n            \"status\": \"in_circulation\",\n            \"status_date\": \"2021-03-02T14:19:37\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-03-02T17:24:53\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.257Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\"\n        },\n        {\n            \"id\": \"0460702776135600001Z90JYCXO\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z90JYCXO\",\n            \"status\": \"in_circulation\",\n            \"status_date\": \"2021-03-02T14:19:37\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-03-02T17:24:53\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.235Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\"\n        },\n        {\n            \"id\": \"0460702776135600001Z93MYPLF\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z93MYPLF\",\n            \"status\": \"in_circulation\",\n            \"status_date\": \"2021-03-02T14:19:37\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-03-02T17:24:53\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.660Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\"\n        },\n        {\n            \"id\": \"0460702776135600001Z93UY9ZY\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z93UY9ZY\",\n            \"status\": \"in_circulation\",\n            \"status_date\": \"2021-03-02T14:19:37\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-03-02T17:24:53\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.685Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\"\n        },\n        {\n            \"id\": \"0460702776135600001Z90SYWV8\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z90SYWV8\",\n            \"status\": \"in_circulation\",\n            \"status_date\": \"2021-03-02T14:19:37\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-03-02T17:24:53\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.260Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\"\n        },\n        {\n            \"id\": \"0460702776135600001Z910T9G9\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z910T9G9\",\n            \"status\": \"in_circulation\",\n            \"status_date\": \"2021-03-02T14:19:37\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-03-02T17:24:53\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.292Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\"\n        },\n        {\n            \"id\": \"0460702776135600001Z9184MQH\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z9184MQH\",\n            \"status\": \"in_circulation\",\n            \"status_date\": \"2021-03-02T14:19:37\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-03-02T17:24:53\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.314Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\"\n        },\n        {\n            \"id\": \"0460702776135600001Z91GYFTO\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z91GYFTO\",\n            \"status\": \"in_circulation\",\n            \"status_date\": \"2021-03-02T14:19:37\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-03-02T17:24:53\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.412Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\"\n        },\n        {\n            \"id\": \"0460702776135600001Z91OYUUP\",\n            \"inn\": \"7202157342\",\n            \"gtin\": \"04607027761356\",\n            \"sgtin\": \"0460702776135600001Z91OYUUP\",\n            \"status\": \"in_circulation\",\n            \"status_date\": \"2021-03-02T14:19:37\",\n            \"batch\": \"210720\",\n            \"owner\": \"АКЦИОНЕРНОЕ ОБЩЕСТВО \\\"ФАРМАЦИЯ\\\"\",\n            \"emission_type\": 1,\n            \"release_date\": \"2020-07-22T07:22:44\",\n            \"emission_operation_date\": \"2020-07-06T14:10:07\",\n            \"federal_subject_code\": \"72\",\n            \"federal_subject_name\": \"Тюменская область\",\n            \"expiration_date\": \"2024-07-31T00:00:00\",\n            \"prod_name\": \"АМЛОДИПИН\",\n            \"sell_name\": \"Амлодипин\",\n            \"full_prod_name\": \"Амлодипин\",\n            \"reg_holder\": \"ООО ОЗОН\",\n            \"pack1_desc\": \"(1 контурная ячейковая упаковка по 30 шт)\",\n            \"last_tracing_op_date\": \"2021-03-02T17:24:53\",\n            \"source_type\": 1,\n            \"drug_code\": \"21.20.10.147-000001-1-00044-2000000631590\",\n            \"prod_d_name\": \"5 мг\",\n            \"oms_order_id\": \"e870d832-a947-443b-b2a7-15745f8fb531\",\n            \"billing_info\": {\n                \"is_prepaid\": false,\n                \"free_code\": false,\n                \"is_paid\": true,\n                \"contains_vzn\": false,\n                \"payments\": [\n                    {\n                        \"created_date\": \"2020-07-10T08:00:42.434Z\",\n                        \"payment_date\": \"2020-07-10T10:38:18.549Z\",\n                        \"tariff\": 4\n                    }\n                ]\n            },\n            \"gnvlp\": true,\n            \"sys_id\": \"00000000000914\"\n        }\n    ],\n    \"failed_entries\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "/v2/reestr/sgtin/public/sgtins-by-list Метод поиска по общедоступным реестрам КИЗ по списку значений",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"filter\": {\n \"sgtins\": [\n \"090069680031392027724382127\",\n \"289011480058360121118000002\"\n ]\n }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/sgtin/public/sgtins-by-list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"sgtin",
+								"public",
+								"sgtins-by-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/sgtin/public/archive/sgtins-by-list Метод поиска по общедоступным реестрам КИЗ в архивном хранилище по списку значений",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n \"filter\": {\n \"sgtins\": [\n \"04620032570010TRACKING00000\",\n \"289011480058360121118000002\"\n ]\n }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/sgtin/public/archive/sgtins-by-list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"sgtin",
+								"public",
+								"archive",
+								"sgtins-by-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/sgtin/:sgtin Метод для получения из реестров КИЗ детальной информации о КИЗ и связанным с ним ЛП",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/sgtin/04620032570010rqpSkH4KWmDld",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"sgtin",
+								"04620032570010rqpSkH4KWmDld"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/sgtin/archive/:sgtin Метод для получения детальной информации о КИЗ в архивном хранилище и связанным с ним ЛП",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/sgtin/archive/04620032570010TRACKING00001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"sgtin",
+								"archive",
+								"04620032570010TRACKING00001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/sscc/:sscc/hierarchy Метод для получения информации об иерархии вложенности третичной упаковки",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/sscc/540488460368761626/hierarchy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"sscc",
+								"540488460368761626",
+								"hierarchy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/sgtin/documents Метод для получения перечня документов по идентификатору КИЗ",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/sgtin/documents?sgtin=04603679001017Eu4kaSCbF7HbY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"sgtin",
+								"documents"
+							],
+							"query": [
+								{
+									"key": "sgtin",
+									"value": "04603679001017Eu4kaSCbF7HbY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/reestr/sscc/full-hierarchy получение полной иерархии третичной упаковки",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v2/reestr/sscc/full-hierarchy?sscc=238389577001812839&sscc=540488460368761626&sscc=357021520000063846",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v2",
+								"reestr",
+								"sscc",
+								"full-hierarchy"
+							],
+							"query": [
+								{
+									"key": "sscc",
+									"value": "238389577001812839"
+								},
+								{
+									"key": "sscc",
+									"value": "540488460368761626"
+								},
+								{
+									"key": "sscc",
+									"value": "357021520000063846"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

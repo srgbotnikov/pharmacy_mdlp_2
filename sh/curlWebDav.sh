@@ -1,0 +1,1 @@
+/opt/cprocsp/bin/amd64/curl -T /home/devel/work/src/ci.drugs.main/okit/pharmacy_mdlp_2/sh/2d78cec0-ca29-4928-b26e-1bb566bab622 http://192.168.146.6:1433/webdav/upload/fdc8960e-a494-4071-9708-4075e6c92b8f/fdc8960e-a494-4071-9708-4075e6c92b8f -H 'Authorization: token 30df2737-8704-439c-b94d-555e0aa8bc50'

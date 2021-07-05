@@ -1,0 +1,18 @@
+port: "8000"
+logstash: "192.168.146.188:3339"
+
+api:
+    Url:          "http://192.168.146.17:1433"  #Stunnel 
+    ClientID:     "121321321" 
+    ClientSecret: "12312313" 
+    UserID:       "1213" 
+    AuthType:     "SIGNED_CODE"
+    UrlMdlp:      "https://api.mdlp.crpt.ru:443" #Нужен для скачивания файлов
+
+redis:
+    Host: "localhost"
+    Port: "6379"
+
+sign:
+    Thumbprint: "4A86035E5F4D44317E48A7A1098EDDFC80CD0123"
+    SignShPath: "/home/devel/work/src/okit/pharmacy_mdlp_2/sh" #Дирректория где хранятся все sh-скрипты для работы с cryptopro CSP. Абсолютный путь
